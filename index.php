@@ -28,6 +28,11 @@ if($_POST['subindex'] === 'OK' and $_FILES['file'])
 	text-align: center;
 	box-shadow: 10px 10px 5px #888888;
 	}
+	table
+	{
+		border: 2px solid black;
+		width:100%;
+	}
 </style>
 </HEAD>
 <BODY>
