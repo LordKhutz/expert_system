@@ -33,12 +33,17 @@ public function __construct($file)
 	}
 	//$this->change_rules();
 }
-
+public function perfomOp($opp)
+{
+    
+}
 public function getvars()
 {
 	$counter = 0;
-	echo $this->facts."<br>";
-	echo $this->query."<br>";
+    //facts have been modified in initial status of alphabet.
+	//done-> echo $this->facts."<br>";
+    //query alphabet states are displayed in red.
+	//done-> echo $this->query."<br>";
 	//echo count($this->operations[2]).'<br>';
 	foreach ($this->rules as $i)
 	{
@@ -46,11 +51,17 @@ public function getvars()
 		print_r($i);
 		echo '</pre>';
 	}
+	$aaaa = str_split(trim($this->query));
 	echo '<table><tr><td>Fact</td><td>State</td></tr>';
-	foreach($this->vars_value as $v)
+	for($counter = 0; $counter < 26; $counter++)
 	{
-		echo '<tr><td>'.$this->vars[$counter].'</td><td>'.$v."</td><tr>";
-		$counter++;
+        foreach ($aaaa as $item) {
+            if ($item === $this->vars[$counter]) {
+                echo '<tr bgcolor="red"><td>' . $this->vars[$counter] . '</td><td>' . $this->vars_value[$counter] . "</td><tr>";
+                $counter++;
+            }
+	    }
+		echo '<tr><td>'.$this->vars[$counter].'</td><td>'.$this->vars_value[$counter]."</td><tr>";
 	}
 	echo '</table>';
 }
